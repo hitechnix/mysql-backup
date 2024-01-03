@@ -3,7 +3,7 @@ LABEL maintainer="Hi-Technix, Inc. <support@hitechnix.com>"
 
 ARG TARGETARCH
 
-COPY ./conf/install.sh install.sh
+COPY ./src/install.sh install.sh
 RUN sh install.sh && rm install.sh
 
 ENV MYSQL_DATABASE ''
