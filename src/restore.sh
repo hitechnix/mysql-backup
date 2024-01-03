@@ -35,10 +35,10 @@ if [ -n "$PASSPHRASE" ]; then
   rm db.dump.gpg
 fi
 
-conn_opts="-h $MYSQL_HOST -p $MYSQL_PORT -U $MYSQL_USER -d $MYSQL_DATABASE"
+conn_opts="-h $MYSQL_HOST -P $MYSQL_PORT -u $MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE"
 
 echo "Restoring from backup..."
-pg_restore $conn_opts --clean --if-exists db.dump
+mysql $conn_opts < db.dump
 rm db.dump
 
 echo "Restore complete."
